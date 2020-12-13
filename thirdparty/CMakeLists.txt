@@ -22,7 +22,7 @@ set(TP_OUTPUT ${PROJECT_SOURCE_DIR}/output)
 # LOG_DIR      = <STAMP_DIR>
 set_property(DIRECTORY PROPERTY EP_BASE ${TP_DIR}/build)
 
-set(OSS_URL_PREFIX "http://pegasus-thirdparties.oss-cn-beijing.aliyuncs.com")
+set(OSS_URL_PREFIX "http://pegasus-thirdparties.oss-accelerate.aliyuncs.com")
 
 message(STATUS "Setting up third-parties...")
 
