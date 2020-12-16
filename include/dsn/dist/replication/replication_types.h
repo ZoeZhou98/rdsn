@@ -6384,12 +6384,13 @@ inline std::ostream &operator<<(std::ostream &out, const bulk_load_metadata &obj
 typedef struct _start_bulk_load_request__isset
 {
     _start_bulk_load_request__isset()
-        : app_name(false), cluster_name(false), file_provider_type(false)
+        : app_name(false), cluster_name(false), file_provider_type(false), remote_root_path(false)
     {
     }
     bool app_name : 1;
     bool cluster_name : 1;
     bool file_provider_type : 1;
+    bool remote_root_path : 1;
 } _start_bulk_load_request__isset;
 
 class start_bulk_load_request
@@ -6399,12 +6400,15 @@ public:
     start_bulk_load_request(start_bulk_load_request &&);
     start_bulk_load_request &operator=(const start_bulk_load_request &);
     start_bulk_load_request &operator=(start_bulk_load_request &&);
-    start_bulk_load_request() : app_name(), cluster_name(), file_provider_type() {}
+    start_bulk_load_request() : app_name(), cluster_name(), file_provider_type(), remote_root_path()
+    {
+    }
 
     virtual ~start_bulk_load_request() throw();
     std::string app_name;
     std::string cluster_name;
     std::string file_provider_type;
+    std::string remote_root_path;
 
     _start_bulk_load_request__isset __isset;
 
@@ -6414,6 +6418,8 @@ public:
 
     void __set_file_provider_type(const std::string &val);
 
+    void __set_remote_root_path(const std::string &val);
+
     bool operator==(const start_bulk_load_request &rhs) const
     {
         if (!(app_name == rhs.app_name))
@@ -6421,6 +6427,8 @@ public:
         if (!(cluster_name == rhs.cluster_name))
             return false;
         if (!(file_provider_type == rhs.file_provider_type))
+            return false;
+        if (!(remote_root_path == rhs.remote_root_path))
             return false;
         return true;
     }
@@ -6598,7 +6606,8 @@ typedef struct _bulk_load_request__isset
           cluster_name(false),
           ballot(false),
           meta_bulk_load_status(false),
-          query_bulk_load_metadata(false)
+          query_bulk_load_metadata(false),
+          remote_root_path(false)
     {
     }
     bool pid : 1;
@@ -6609,6 +6618,7 @@ typedef struct _bulk_load_request__isset
     bool ballot : 1;
     bool meta_bulk_load_status : 1;
     bool query_bulk_load_metadata : 1;
+    bool remote_root_path : 1;
 } _bulk_load_request__isset;
 
 class bulk_load_request
@@ -6624,7 +6634,8 @@ public:
           cluster_name(),
           ballot(0),
           meta_bulk_load_status((bulk_load_status::type)0),
-          query_bulk_load_metadata(0)
+          query_bulk_load_metadata(0),
+          remote_root_path()
     {
     }
 
@@ -6637,6 +6648,7 @@ public:
     int64_t ballot;
     bulk_load_status::type meta_bulk_load_status;
     bool query_bulk_load_metadata;
+    std::string remote_root_path;
 
     _bulk_load_request__isset __isset;
 
@@ -6656,6 +6668,8 @@ public:
 
     void __set_query_bulk_load_metadata(const bool val);
 
+    void __set_remote_root_path(const std::string &val);
+
     bool operator==(const bulk_load_request &rhs) const
     {
         if (!(pid == rhs.pid))
@@ -6673,6 +6687,8 @@ public:
         if (!(meta_bulk_load_status == rhs.meta_bulk_load_status))
             return false;
         if (!(query_bulk_load_metadata == rhs.query_bulk_load_metadata))
+            return false;
+        if (!(remote_root_path == rhs.remote_root_path))
             return false;
         return true;
     }
@@ -6839,7 +6855,8 @@ typedef struct _group_bulk_load_request__isset
           config(false),
           provider_name(false),
           cluster_name(false),
-          meta_bulk_load_status(false)
+          meta_bulk_load_status(false),
+          remote_root_path(false)
     {
     }
     bool app_name : 1;
@@ -6848,6 +6865,7 @@ typedef struct _group_bulk_load_request__isset
     bool provider_name : 1;
     bool cluster_name : 1;
     bool meta_bulk_load_status : 1;
+    bool remote_root_path : 1;
 } _group_bulk_load_request__isset;
 
 class group_bulk_load_request
@@ -6861,7 +6879,8 @@ public:
         : app_name(),
           provider_name(),
           cluster_name(),
-          meta_bulk_load_status((bulk_load_status::type)0)
+          meta_bulk_load_status((bulk_load_status::type)0),
+          remote_root_path()
     {
     }
 
@@ -6872,6 +6891,7 @@ public:
     std::string provider_name;
     std::string cluster_name;
     bulk_load_status::type meta_bulk_load_status;
+    std::string remote_root_path;
 
     _group_bulk_load_request__isset __isset;
 
@@ -6887,6 +6907,8 @@ public:
 
     void __set_meta_bulk_load_status(const bulk_load_status::type val);
 
+    void __set_remote_root_path(const std::string &val);
+
     bool operator==(const group_bulk_load_request &rhs) const
     {
         if (!(app_name == rhs.app_name))
@@ -6900,6 +6922,8 @@ public:
         if (!(cluster_name == rhs.cluster_name))
             return false;
         if (!(meta_bulk_load_status == rhs.meta_bulk_load_status))
+            return false;
+        if (!(remote_root_path == rhs.remote_root_path))
             return false;
         return true;
     }
