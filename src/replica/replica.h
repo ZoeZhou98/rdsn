@@ -446,6 +446,8 @@ private:
 
     void init_table_level_latency_counters();
 
+    uint32_t query_data_version() const;
+
 private:
     friend class ::dsn::replication::test::test_checker;
     friend class ::dsn::replication::mutation_queue;

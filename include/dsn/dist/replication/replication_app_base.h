@@ -242,6 +242,9 @@ public:
 
     virtual ingestion_status::type get_ingestion_status() { return ingestion_status::IS_INVALID; }
 
+    // query pegasus data version
+    virtual uint32_t query_data_version() const = 0;
+
 public:
     //
     // utility functions to be used by app

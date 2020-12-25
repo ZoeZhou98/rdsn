@@ -456,5 +456,12 @@ void replica::init_table_level_latency_counters()
         }
     }
 }
+
+uint32_t replica::query_data_version() const
+{
+    dassert_replica(_app != nullptr, "");
+    return _app->query_data_version();
+}
+
 } // namespace replication
 } // namespace dsn
