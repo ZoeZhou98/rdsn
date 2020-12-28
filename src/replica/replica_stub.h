@@ -208,6 +208,7 @@ public:
     void
     query_app_compact_status(int32_t app_id,
                              /*out*/ std::unordered_map<gpid, manual_compaction_status> &status);
+
 private:
     enum replica_node_state
     {
@@ -275,7 +276,9 @@ private:
         return 0;
     }
 
-    error_code query_app_data_version(int32_t app_id, /*out*/ uint32_t &data_version);
+    void query_app_data_version(
+        int32_t app_id,
+        /*pidx => data_version*/ std::unordered_map<int32_t, uint32_t> &version_map);
 
 #ifdef DSN_ENABLE_GPERF
     // Try to release tcmalloc memory back to operating system
