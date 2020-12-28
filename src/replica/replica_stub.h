@@ -204,6 +204,10 @@ public:
     // This function is used for partition split error handler
     void split_replica_error_handler(gpid pid, local_execution handler);
 
+    // query partitions compact status by app_id
+    void
+    query_app_compact_status(int32_t app_id,
+                             /*out*/ std::unordered_map<gpid, manual_compaction_status> &status);
 private:
     enum replica_node_state
     {
